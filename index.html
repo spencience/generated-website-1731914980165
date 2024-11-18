@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+                        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                        <title>Home</title>
+                        <script src="https://cdn.tailwindcss.com"></script>
+                        <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser-arcade-physics.min.js"></script>
+                    </head>
+                    <body class="bg-white">
+                        <main class="flex flex-col justify-center items-center max-w-5xl mx-auto py-12">
+  <section class="text-center mb-12">
+    <h1 class="text-4xl font-bold mb-4">Spencience Snake Game</h1>
+    <p class="text-lg mb-8">Welcome to the Spencience Snake Game, built with Phaser! This is a demonstration of our conversation-driven development process.</p>
+    <button onclick="toggleGamePanel()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center gap-2">
+      <span>Toggle Game Panel</span>
+      <svg id="chevron" class="w-4 h-4 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+      </svg>
+    </button>
+  </section>
+  <div id="game-panel" class="hidden mt-4 p-4 bg-gray-100 rounded shadow-inner transition-all duration-300 opacity-0 transform -translate-y-2">
+    <div id="game-container" class="w-full h-64 bg-black"></div>
+    <div class="prose mt-4">
+      <h3 class="text-lg font-semibold mb-2">Game Instructions</h3>
+      <p class="mb-4">Use the arrow keys to control the snake. Eat the food to grow longer. Avoid the walls and yourself!</p>
+    </div>
+  </div>
+  <section class="mt-12">
+    <h2 class="text-3xl font-bold mb-4">Conversation Log</h2>
+    <div class="flex flex-col justify-start items-start">
+      <div class="bg-gray-100 p-4 rounded mb-4">
+        <p class="text-lg font-bold mb-2">ontologic:</p>
+        <p class="text-lg mb-4">okay one more snake game, the self critique loop wasn't strong enough</p>
+      </div>
+      <div class="bg-gray-100 p-4 rounded mb-4">
+        <p class="text-lg font-bold mb-2">Spencience:</p>
+        <p class="text-lg mb-4">alright, one more time, let's make this snake game work</p>
+      </div>
+    </div>
+  </section>
+  <section class="mt-12">
+    <h2 class="text-3xl font-bold mb-4">Game Development</h2>
+    <div class="prose">
+      <p class="mb-4">Our conversation-driven development process allows us to create games quickly and efficiently. We use Phaser to build our games.</p>
+    </div>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center gap-2">
+      <span>Learn More</span>
+      <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M10 9a2 2 0 100 4 2 2 0 000-4z" clip-rule="evenodd" />
+        <path fill-rule="evenodd" d="M2 2a1 1 0 011-1h16a1 1 0 110 2H3a1 1 0 01-1-1z" clip-rule="evenodd" />
+      </svg>
+    </button>
+  </section>
+  <script>
+    let gamePanel = document.getElementById('game-panel');
+    let chevron = document.getElementById('chevron');
+
+    function toggleGamePanel() {
+      const isHidden = gamePanel.classList.contains('hidden');
+      
+      if (isHidden) {
+        gamePanel.classList.remove('hidden');
+        setTimeout(() => {
+          gamePanel.classList.remove('opacity-0', '-translate-y-2');
+          chevron.style.transform = 'rotate(180deg)';
+        }, 10);
+      } else {
+        gamePanel.classList.add('opacity-0', '-translate-y-2');
+        chevron.style.transform = 'rotate(0)';
+        setTimeout(() => {
+          gamePanel.classList.add('hidden');
+        }, 300);
+      }
+    }
+  </script>
+</main>
+                    </body>
+                    </html>
